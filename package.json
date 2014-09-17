@@ -1,0 +1,7 @@
+{
+  "name": "node-core",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib/main.js",
+  "author": "Andreas Stocker"
+}
