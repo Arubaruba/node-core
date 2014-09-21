@@ -11,8 +11,9 @@ exports.init = function (options, callback) {
 
   function startServer() {
     http.createServer(function (request, response) {
-//      var session = session(request, response, options.db);
-      router.init(request, response, session);
+      session(request, response, options, function (err, session) {
+        router.init(request, response, session);
+      });
     }).listen(options.port);
     if (callback) callback();
   }

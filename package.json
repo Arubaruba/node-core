@@ -2,7 +2,7 @@
   "name": "node-core",
   "version": "0.0.0",
   "description": "",
-  "main": "lib/main.js",
+  "main": "lib/basic.js",
   "author": "Andreas Stocker",
   "private": true,
   "repository": {
@@ -10,6 +10,10 @@
     "url": "git@github.com:Arubaruba/node-core.git"
   },
   "dependencies": {
+    "nodeunit": "~0.9.0",
+    "async": "~0.9.0"
+  },
+  "devDependencies": {
     "nodeunit": "~0.9.0"
   }
 }

@@ -1,7 +1,7 @@
 var router = require('../lib/router');
+var http = require('./mocks/http');
 // A test helper for all router tests
 function routerTest(url, call) {
-  var http = require('./mocks/http')();
   http.request.url = url;
   call(router);
 
