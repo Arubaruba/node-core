@@ -1,21 +1,26 @@
 var http = require('http');
 var util = require('./lib/util');
-var router = require('./lib/router');
+var Route = require('./lib/route');
 var cluster = require('./lib/cluster');
 var session = require('./lib/session/session');
 
-exports.route = router.root;
+var route = new Route('*', function(request, response, session, router) {
+  router.next(function() {
+    response.statusCode = 404;
+    response.end('404 Error - Page not found');
+  });
+});
 
 exports.init = function (options, callback) {
   util.requiredProperties(options, ['db', 'port'], 'Core');
 
   function startServer() {
-    http.createServer(function (request, response) {
+    var server = http.createServer(function (request, response) {
       session(request, response, options, function (err, session) {
-        router.init(request, response, session);
+        route.follow(request, response, session);
       });
     }).listen(options.port);
-    if (callback) callback();
+    if (callback) callback(server);
   }
 
   if (options.production) {
@@ -26,3 +31,5 @@ exports.init = function (options, callback) {
     startServer();
   }
 };
+
+exports.route = route;
