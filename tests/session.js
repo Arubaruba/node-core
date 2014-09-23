@@ -28,8 +28,9 @@ exports['Cookies'] = function (test) {
     http.route.handle('/setCookie', function (request, response, session) {
       var inFiveSeconds = new Date();
       inFiveSeconds.setSeconds(inFiveSeconds.getSeconds() + 5);
-      session.setCookie(cookieName, cookieValue, {Expires: inFiveSeconds.toUTCString()});
-      response.end();
+      session.setCookie(cookieName, cookieValue, {Expires: inFiveSeconds.toUTCString()}, function() {
+        response.end();
+      });
     });
 
     http.route.handle('/checkCookie', function (request, response, session) {

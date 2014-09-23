@@ -7,7 +7,8 @@ var session = require('./lib/session/session');
 var route = new Route('*', function(request, response, session, router) {
   router.next(function() {
     response.statusCode = 404;
-    response.end('404 Error - Page not found');
+    response.write('404 Error - Page not found');
+    response.end();
   });
 });
 

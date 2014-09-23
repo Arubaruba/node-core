@@ -1,6 +1,6 @@
 var data = {};
 
-exports.set = function(name, value, callback) {
+exports.put = function(name, value, callback) {
   data[name] = value;
   callback();
 };

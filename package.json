@@ -5,6 +5,9 @@
   "main": "lib/basic.js",
   "author": "Andreas Stocker",
   "private": true,
+  "scripts": {
+    "test": "node tests/run.js"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:Arubaruba/node-core.git"

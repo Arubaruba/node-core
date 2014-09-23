@@ -2,6 +2,5 @@ var nodeunit = require('nodeunit');
 
 process.chdir(__dirname);
 
-nodeunit.reporters.default.run([
-  ''
-]);
+nodeunit.reporters.default.run(['']);
+
